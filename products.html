@@ -26,229 +26,238 @@
 
 <body>
 
-    <input type="checkbox" id="menu_switch">
-    <header class="main_header">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="pic/nav_logo.svg" alt="MAOSGOODY | 毛氏好豆">
-            </a>
-
-            <ul class="nav_list">
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="news.html">NEWS</a></li>
-                <li><a href="products.html">PRODUCTS</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-            </ul>
-            <ul class="nav_button">
-                <li>
-                    <a href="login.html">
-                        <img src="pic/nav_login.png" alt="Log in">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="pic/nav_cart.png" alt="Cart">
-                    </a>
-                </li>
-            </ul>
-            <label for="menu_switch" class="hb">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-        </div>
-    </header>
+    <div id="app">
+        <input type="checkbox" id="menu_switch">
+        <header class="main_header">
+            <div class="container">
+                <a :href="homeLink" class="logo">
+                    <img :src="navLogo" alt="MAOSGOODY | 毛氏好豆">
+                </a>
 
 
-
-    <section class="section_banner">
-        <div class="banner_container">
-            <div class="banner_bg">
-                <!-- <img src="pic/products_banner.png" alt=""> -->
+                <ul class="nav_list" v-for="list in navList" :key="list.index" >
+                    <li><a :href="list.link">{{list.name}}</a></li>
+                </ul>
+                <ul class="nav_button">
+                    <li>
+                        <a :href="loginLink">
+                            <img :src="loginImg" alt="Log in">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img :src="cart" alt="Cart">
+                        </a>
+                    </li>
+                </ul>
+                <label for="menu_switch" class="hb">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
             </div>
-            <div class="banner_text">
-                <div class="icon">
-                    <img src="pic/products_bannericon.png" alt="">
+        </header>
+
+
+
+
+        <section class="section_banner">
+            <div class="banner_container">
+                <div class="banner_bg">
+                    <!-- <img src="pic/products_banner.png" alt=""> -->
                 </div>
-                <h2>PRODUCTS</h2>
-                <h3>毛氏精選</h3>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="section_product">
-        <div class="product_container">
-            <div class="nav_wrap">
-                <div class="nav_list">
-                    <div class="nav_icon">
-                        <img src="pic/products_nav_icon.png" alt="">
+                <div class="banner_text">
+                    <div class="icon">
+                        <img src="pic/products_bannericon.png" alt="">
                     </div>
-                    <a href="products.html">全部商品</a>
-                    <a href="products.html">豆莢豆仁</a>
-                    <a href="products.html">好味料理</a>
-                    <a href="products.html">涮嘴點心</a>
-                    <a href="products.html">飲料冰品</a>
-                    <a href="products.html">生活雜貨</a>
+                    <h2>PRODUCTS</h2>
+                    <h3>毛氏精選</h3>
                 </div>
             </div>
-            <div class="product_wrap">
-                <div class="product_card">
-                    <a href="products_item.html">
-                        <div class="card_pic">
-                            <img src="pic/product_pic_1_s.jpg" alt="">
-                        </div>
-                        <div class="card_text">
-                            <h4 class="name">毛豆乳酪冰淇淋</h4>
-                            <h4 class="name_en">Edamame & Cheese Gelato</h4>
-                            <div class="weight">90g</div>
-                            <div class="price"><span>NT </span>$79</div>
-                        </div>
-                        <div class="card_label">人氣<br>NO.1</div>
-                    </a>
-                </div>
-                <div class="product_card">
-                    <a href="products_item.html">
-                        <div class="card_pic">
-                            <img src="pic/product_pic_2_s.jpg" alt="">
-                        </div>
-                        <div class="card_text">
-                            <h4 class="name">經典鹽味毛豆</h4>
-                            <h4 class="name_en">Classic Salty Edamame</h4>
-                            <div class="weight">600g</div>
-                            <div class="price"><span>NT </span>$250</div>
-                        </div>
+        </section>
 
-                    </a>
-                </div>
-                <div class="product_card">
-                    <a href="products_item.html">
-                        <div class="card_pic">
-                            <img src="pic/product_pic_3_s.jpg" alt="">
-                        </div>
-                        <div class="card_text">
-                            <h4 class="name">毛豆可可脆餅</h4>
-                            <h4 class="name_en">Edamame Cocoa Biscuit</h4>
-                            <div class="weight">300g</div>
-                            <div class="price"><span>NT </span>$290</div>
-                        </div>
-                        <div class="card_label_gold">團購<br>熱門</div>
-                    </a>
-                </div>
-                <div class="product_card">
-                    <a href="products_item.html">
-                        <div class="card_pic">
-                            <img src="pic/product_pic_5_s.jpg" alt="">
-                        </div>
-                        <div class="card_text">
-                            <h4 class="name">新鮮生毛豆</h4>
-                            <h4 class="name_en">Raw Edamame</h4>
-                            <div class="weight">800g</div>
-                            <div class="price"><span>NT </span>$200</div>
-                        </div>
 
-                    </a>
-                </div>
-                <div class="product_card">
-                    <a href="products_item.html">
-                        <div class="card_pic">
-                            <img src="pic/product_pic_4_s.jpg" alt="">
+        <section class="section_product">
+            <div class="product_container">
+                <div class="nav_wrap">
+                    <div class="nav_list" id="menuPanel">
+                        <div class="nav_icon">
+                            <img src="pic/products_nav_icon.png" alt="">
                         </div>
-                        <div class="card_text">
-                            <h4 class="name">極濃．毛豆Gelato</h4>
-                            <h4 class="name_en">Thick Edamame Gelato</h4>
-                            <div class="weight">100g</div>
-                            <div class="price"><span>NT </span>$129</div>
-                        </div>
+                        <a href="products.html" v-for="item in menu">{{item}}</a>
 
-                    </a>
+                    </div>
                 </div>
-                <div class="product_card">
-                    <a href="products_item.html">
-                        <div class="card_pic">
-                            <img src="pic/product_pic_1_s.jpg" alt="">
-                        </div>
-                        <div class="card_text">
-                            <h4 class="name">毛豆乳酪冰淇淋</h4>
-                            <h4 class="name_en">Edamame & Cheese Gelato</h4>
-                            <div class="weight">90g</div>
-                            <div class="price"><span>NT </span>$79</div>
-                        </div>
-                        <div class="card_label">人氣<br>NO.1</div>
-                    </a>
-                </div>
-                <div class="product_card">
-                    <a href="products_item.html">
-                        <div class="card_pic">
-                            <img src="pic/product_pic_2_s.jpg" alt="">
-                        </div>
-                        <div class="card_text">
-                            <h4 class="name">經典鹽味毛豆</h4>
-                            <h4 class="name_en">Classic Salty Edamame</h4>
-                            <div class="weight">600g</div>
-                            <div class="price"><span>NT </span>$250</div>
-                        </div>
+                <div class="product_wrap" id="productsPanel">
 
-                    </a>
-                </div>
-                <div class="product_card">
-                    <a href="products_item.html">
-                        <div class="card_pic">
-                            <img src="pic/product_pic_3_s.jpg" alt="">
-                        </div>
-                        <div class="card_text">
-                            <h4 class="name">毛豆可可脆餅</h4>
-                            <h4 class="name_en">Edamame Cocoa Biscuit</h4>
-                            <div class="weight">300g</div>
-                            <div class="price"><span>NT </span>$290</div>
-                        </div>
-                        <div class="card_label_gold">團購<br>熱門</div>
-                    </a>
+                    <div class="product_card" v-for="item in products">
+                        <a href="products_item.html">
+                            <div class="card_pic">
+                                <img :src="item.card_pic" alt="">
+                            </div>
+                            <div class="card_text">
+                                <h4 class="name">{{item.name}}</h4>
+                                <h4 class="name_en">{{item.name_en}}</h4>
+                                <div class="weight">{{item.weight}}</div>
+                                <div class="price"><span>NT </span>${{item.price}}</div>
+                            </div>
+                            <div :class="item.class" v-html="item.title"></div>
+                        </a>
+                    </div>
+
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <div class="section_page">
-        <div class="page_container">
-            <a href="#" class="p1">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
+        <div class="section_page">
+            <div class="page_container">
+                <a href="#" class="p1">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+            </div>
         </div>
+
+        <footer class="main_footer">
+            <div class="footer_container">
+                <div class="footer_list">
+                    <div class="logo">
+                        <img src="pic/footer_logo.svg" alt="">
+                    </div>
+                    <div class="info">
+                        <p>
+                            營業時間｜週一至週六 09:30-20:00 (週日公休)<br>
+                            電話｜03-425-1108<br>
+                            信箱｜maosgoody@gmail.com<br>
+                            地址｜320 桃園市中壢區復興路46號<br>
+                        </p>
+                    </div>
+                    <div class="nav">
+                        <a href="#" v-for="item in footerlink">{{item}}</a>
+                    </div>
+                    <div class="follow">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer_copyright">
+                    <p>本網站為緯育TibaMe前端工程師班第85期學員專題作品，本平台僅供學習、展示之用｜參考資源：GOCHISOY、boco to deco、OYOGE、新市區農會<br>
+                        &copy; MAOSGOODY All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
     </div>
 
-    <footer class="main_footer">
-        <div class="footer_container">
-            <div class="footer_list">
-                <div class="logo">
-                    <img src="pic/footer_logo.svg" alt="">
-                </div>
-                <div class="info">
-                    <p>
-                        營業時間｜週一至週六 09:30-20:00 (週日公休)<br>
-                        電話｜03-425-1108<br>
-                        信箱｜maosgoody@gmail.com<br>
-                        地址｜320 桃園市中壢區復興路46號<br>
-                    </p>
-                </div>
-                <div class="nav">
-                    <a href="#">ABOUT</a>
-                    <a href="#">NEWS</a>
-                    <a href="#">PRODUCTS</a>
-                    <a href="#">CONTACT</a>
-                </div>
-                <div class="follow">
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                </div>
-            </div>
-            <div class="footer_copyright">
-                <p>本網站為緯育TibaMe前端工程師班第85期學員專題作品，本平台僅供學習、展示之用｜參考資源：GOCHISOY、boco to deco、OYOGE、新市區農會<br>
-                    &copy; MAOSGOODY All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <script src=" https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    navList:[
+                        {
+                            index:'about',
+                            link:'about.html',
+                            name:'ABOUT'
+                        },
+                        {
+                            index:'news',
+                            link:'news.html',
+                            name:'NEWS'
+                        },
+                        {
+                            index:'products',
+                            link:'products.html',
+                            name:'PRODUCTS'
+                        },
+                        {
+                            index:'contact',
+                            link:'contact.html',
+                            name:'CONTACT'
+                        }
+                    ],
+                    loginImg:'pic/nav_login.png',
+                    loginLink:'login.html',
+                    cart:'pic/nav_cart.png',
+                    homeLink:'index.html',
+                    navLogo:'pic/nav_logo.svg',
+
+                    menu: ["全部商品", "豆莢豆仁", "好味料理", "涮嘴點心", "飲料冰品", "生活雜貨"],
+                    products: [
+                        {
+                            card_pic: "pic/product_pic_1_s.jpg",
+                            name: "毛豆乳酪冰淇淋",
+                            name_en: "Edamame & Cheese Gelato",
+                            weight: "90g",
+                            price: 79,
+                            class: "card_label",
+                            title: "人氣<br>NO.1"
+
+                        },
+                        {
+                            card_pic: "pic/product_pic_2_s.jpg",
+                            name: "經典鹽味毛豆",
+                            name_en: "Classic Salty Edamame",
+                            weight: "600g",
+                            price: 250,
+                            class: ""
+                        },
+                        {
+                            card_pic: "pic/product_pic_3_s.jpg",
+                            name: "毛豆可可脆餅",
+                            name_en: "Edamame Cocoa Biscuit",
+                            weight: "300g",
+                            price: 290,
+                            class: "card_label",
+                            title: "團購<br>熱門"
+                        },
+                        {
+                            card_pic: "pic/product_pic_5_s.jpg",
+                            name: "新鮮生毛豆",
+                            name_en: "Raw Edamame",
+                            weight: "800g",
+                            price: 200,
+                            card_label: ""
+                        },
+                        {
+                            card_pic: "pic/product_pic_4_s.jpg",
+                            name: "極濃．毛豆Gelato",
+                            name_en: "Thick Edamame Gelato",
+                            weight: "100g",
+                            price: 129,
+                            card_label: ""
+                        },
+                        {
+                            card_pic: "pic/product_pic_1_s.jpg",
+                            name: "毛豆乳酪冰淇淋",
+                            name_en: "Edamame & Cheese Gelato",
+                            weight: "90g",
+                            price: 79,
+                            card_label: "人氣<br>NO.1"
+                        },
+                        {
+                            card_pic: "pic/product_pic_2_s.jpg",
+                            name: "經典鹽味毛豆",
+                            name_en: "Classic Salty Edamame",
+                            weight: "600g",
+                            price: 250,
+                            card_label: ""
+                        },
+                        {
+                            card_pic: "pic/product_pic_3_s.jpg",
+                            name: "毛豆可可脆餅",
+                            name_en: "Edamame Cocoa Biscuit",
+                            weight: "300g",
+                            price: 290,
+                            card_label: "團購<br>熱門"
+                        },
+                    ],
+                    footerlink: ["ABOUT", "NEWS", "PRODUCTS", "CONTACT"]
+                }
+            },
+        }).mount("#app");
+    </script>
+
+
 
 </body>
 

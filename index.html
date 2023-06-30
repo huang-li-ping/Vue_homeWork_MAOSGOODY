@@ -27,57 +27,55 @@
 
 <body>
 
-    <input type="checkbox" id="menu_switch">
-    <header class="main_header">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="pic/nav_logo.svg" alt="MAOSGOODY | 毛氏好豆">
-            </a>
-
-            <ul class="nav_list">
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="news.html">NEWS</a></li>
-                <li><a href="products.html">PRODUCTS</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-            </ul>
-            <ul class="nav_button">
-                <li>
-                    <a href="login.html">
-                        <img src="pic/nav_login.png" alt="Log in">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="pic/nav_cart.png" alt="Cart">
-                    </a>
-                </li>
-            </ul>
-            <label for="menu_switch" class="hb">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-        </div>
-    </header>
+    <div id="app">
+        <input type="checkbox" id="menu_switch">
+        <header class="main_header">
+            <div class="container">
+                <a :href="homeLink" class="logo">
+                    <img :src="navLogo" alt="MAOSGOODY | 毛氏好豆">
+                </a>
 
 
-    <section class="section_banner">
-        <div class="banner_container">
-            <div class="banner_pic">
-                <img src="pic/banner_n.jpg" alt="">
-                <div class="banner_deco">
-                    <img src="pic/banner_deco.png" alt="">
+                <ul class="nav_list" v-for="list in navList" :key="list.index" >
+                    <li><a :href="list.link">{{list.name}}</a></li>
+                </ul>
+                <ul class="nav_button">
+                    <li>
+                        <a :href="loginLink">
+                            <img :src="loginImg" alt="Log in">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img :src="cart" alt="Cart">
+                        </a>
+                    </li>
+                </ul>
+                <label for="menu_switch" class="hb">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+        </header>
+
+
+        <section class="section_banner">
+            <div class="banner_container">
+                <div class="banner_pic">
+                    <img src="pic/banner_n.jpg" alt="">
+                    <div class="banner_deco">
+                        <img src="pic/banner_deco.png" alt="">
+                    </div>
                 </div>
+                <div class="banner_text">
+                    <p class="intro">Fresh. Nutritious. Eco-friendly.<br>
+                        The Best Edamame Farm in Taiwan.</p>
+                    <h1 class="title">Life’s<br>Bean Good.</h1>
+                    <p class="title_ch">好日子，好心情，好毛豆。</p>
+                </div>  
             </div>
-            <div class="banner_text">
-                <p class="intro">Fresh. Nutritious. Eco-friendly.<br>
-                    The Best Edamame Farm in Taiwan.</p>
-                <h1 class="title">Life’s<br>Bean Good.</h1>
-                <p class="title_ch">好日子，好心情，好毛豆。</p>
-            </div>
-
-        </div>
-    </section>
+        </section>
 
 
     <section class="section_about">
@@ -103,124 +101,68 @@
         </div>
     </section>
 
-
-    <section class="section_products">
-        <div class="products_container">
-            <div class="products_header">
-                <div class="header_pic">
-                    <img src="pic/products_pic_s.jpg" alt="">
-                </div>
-                <div class="header_text">
-                    <h3 class="title">PRODUCTS</h3>
-                    <p class="subtitle">打包一口自然，讓豆香走進日常</p>
-                </div>
-
-            </div>
-            <div class="products_cardlist">
-                <div class="products_card">
-                    <a href="products_item.html">
-                        <div class="card_pic">
-                            <img src="pic/bowl_s.png" alt="">
-                        </div>
-                    </a>
-                    <div class="card_text">
-                        <h4 class="product_name">經典鹽味毛豆</h4>
-                        <p class="english_name">Classic Salty Edamame</p>
-                        <p class="weight">500g</p>
-                        <p class="price"><span>NT </span>$90</p>
+        <section class="section_products">
+            <div class="products_container">
+                <div class="products_header">
+                    <div class="header_pic">
+                        <img src="pic/products_pic_s.jpg" alt="">
                     </div>
-                </div>
-                <div class="products_card">
-                    <a href="products_item.html">
-                        <div class="card_pic">
-                            <img src="pic/gelato_s.png" alt="">
-                        </div>
-                    </a>
-                    <div class="card_text">
-                        <h4 class="product_name">毛豆乳酪冰淇淋</h4>
-                        <p class="english_name">Edamame & Cheese Gelato</p>
-                        <p class="weight">90g</p>
-                        <p class="price"><span>NT </span>$79</p>
+                    <div class="header_text">
+                        <h3 class="title">PRODUCTS</h3>
+                        <p class="subtitle">打包一口自然，讓豆香走進日常</p>
                     </div>
+
                 </div>
-                <div class="products_card">
-                    <a href="products_item.html">
-                        <div class="card_pic">
-                            <img src="pic/cookie_s.png" alt="">
+                <div class="products_cardlist">
+                    <div class="products_card" v-for="product in products" :key="product.index">
+                        <a :href="productLink">
+                            <div class="card_pic">
+                                <img :src="product.img" :alt="product.name_tw">
+                            </div>
+                        </a>
+                        <div class="card_text">
+                            <h4 class="product_name">{{product.name_tw}}</h4>
+                            <p class="english_name">{{product.name_en}}</p>
+                            <p class="weight">{{product.weight}}</p>
+                            <p class="price"><span>NT </span>{{product.price}}</p>
                         </div>
-                    </a>
-                    <div class="card_text">
-                        <h4 class="product_name">毛豆可可脆餅</h4>
-                        <p class="english_name">Edamame Cocoa Biscuit</p>
-                        <p class="weight">300g</p>
-                        <p class="price"><span>NT </span>$290</p>
                     </div>
+
+                </div>
+                <div class="products_button">
+                    <a href="products.html">See All</a>
                 </div>
             </div>
-            <div class="products_button">
-                <a href="products.html">See All</a>
+        </section>
+
+
+        <section class="section_newsticker">
+            <div class="newsticker_list">
+                <div class="newsticker_content first">
+                    <img :src="newsticker" :alt="newsticker">
+                </div>
+                <div class="newsticker_content second">
+                    <img :src="newsticker" :alt="newsticker">
+                </div>
             </div>
-        </div>
-    </section>
-
-
-    <section class="section_newsticker">
-        <div class="newsticker_list">
-            <div class="newsticker_content first">
-                <img src="pic/newsticker.png" alt="">
-            </div>
-            <div class="newsticker_content second">
-                <img src="pic/newsticker.png" alt="">
-            </div>
-        </div>
-    </section>
-
-
-    <section class="section_news">
+        </section>
         <div class="news_container">
             <h3 class="title">NEWS</h3>
             <div class="news_list">
-                <div class="news_wrap">
+                <div class="news_wrap" v-for="news in newsList">
                     <div class="news_content">
                         <div class="news_pic">
-                            <img src="pic/news1_s.jpg" alt="">
+                            <img :src="news.imgSrc" alt="">
                         </div>
                         <div class="news_text">
-                            <p class="date">2023.05.24</p>
-                            <p class="news_title">
-                                Petit Fleur 甜點跨界聯名！<br>
-                                毛豆與布朗尼交織的法式小情歌</p>
-                            <p class="news_article">
-                                初夏法式甜點鉅獻！前端工程師吃了有如神助！讓你code人心弦、入幕三分，連Amos看了都說豪棒棒
-                            </p>
+                            <p class="date">{{ news.date }}</p>
+                            <p class="news_title">{{ news.title }}</p>
+                            <p class="news_article">{{ news.article }}</p>
                         </div>
                     </div>
                     <div class="news_function">
-                        <div class="news_label">新品上市</div>
-                        <a href="#">
-                            <span>Read More</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="news_wrap">
-                    <div class="news_content">
-                        <div class="news_pic">
-                            <img src="pic/news2_s.jpg" alt="">
-                        </div>
-                        <div class="news_text">
-                            <p class="date">2023.05.05</p>
-                            <p class="news_title">
-                                來去毛氏住一晚～<br>
-                                小農輕旅行六月梯次開放預約囉</p>
-                            <p class="news_article">
-                                每天在Tibame盯著電腦吹冷氣，對打code人生失去動力嗎？快讓自然的遼闊山林和田野風情療癒你匱乏的心靈~
-                            </p>
-                        </div>
-                    </div>
-                    <div class="news_function">
-                        <div class="news_label">消息報報</div>
-                        <a href="#">
+                        <div class="news_label">{{ news.label }}</div>
+                        <a :href='news.link'>
                             <span>Read More</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
@@ -231,62 +173,140 @@
                 <a href="news.html">More News</a>
             </div>
         </div>
-    </section>
-
-
-    <section class="section_contact">
-        <div class="contact_container">
-            <div class="contact_bg">
-                <img src="pic/contact_bg_s.jpg" alt="">
-            </div>
-            <div class="contact_buttonlist">
-                <a href="contact.html" class="btn_contact">
-                    <i class="fa-solid fa-mobile-screen"></i>
-                    CONTACT US
-                </a>
-                <a href="login.html" class="btn_login">
-                    <i class="fa-solid fa-user"></i>
-                    LOG IN
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-    <footer class="main_footer">
-        <div class="footer_container">
-            <div class="footer_list">
-                <div class="logo">
-                    <img src="pic/footer_logo.svg" alt="">
+        </section>
+        <section class="section_contact">
+            <div class="contact_container">
+                <div class="contact_bg">
+                    <img src="pic/contact_bg_s.jpg" alt="">
                 </div>
-                <div class="info">
-                    <p>
-                        營業時間｜週一至週六 09:30-20:00 (週日公休)<br>
-                        電話｜03-425-1108<br>
-                        信箱｜maosgoody@gmail.com<br>
-                        地址｜320 桃園市中壢區復興路46號<br>
-                    </p>
-                </div>
-                <div class="nav">
-                    <a href="#">ABOUT</a>
-                    <a href="#">NEWS</a>
-                    <a href="#">PRODUCTS</a>
-                    <a href="#">CONTACT</a>
-                </div>
-                <div class="follow">
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <div class="contact_buttonlist">
+                    <a href="contact.html" class="btn_contact">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        CONTACT US
+                    </a>
+                    <a href="login.html" class="btn_login">
+                        <i class="fa-solid fa-user"></i>
+                        LOG IN
+                    </a>
                 </div>
             </div>
-            <div class="footer_copyright">
-                <p>本網站為緯育TibaMe前端工程師班第85期學員專題作品，本平台僅供學習、展示之用｜參考資源：GOCHISOY、boco to deco、OYOGE、新市區農會<br>
-                    &copy; MAOSGOODY All Rights Reserved.</p>
+        </section>
+        <footer class="main_footer">
+            <div class="footer_container">
+                <div class="footer_list">
+                    <div class="logo">
+                        <img src="pic/footer_logo.svg" alt="">
+                    </div>
+                    <div class="info">
+                        <p>
+                            營業時間｜週一至週六 09:30-20:00 (週日公休)<br>
+                            電話｜03-425-1108<br>
+                            信箱｜maosgoody@gmail.com<br>
+                            地址｜320 桃園市中壢區復興路46號<br>
+                        </p>
+                    </div>
+                    <div class="nav">
+                        <a href="#" v-for="item in footerlink">{{item}}</a>
+                    </div>
+                    <div class="follow">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer_copyright">
+                    <p>本網站為緯育TibaMe前端工程師班第85期學員專題作品，本平台僅供學習、展示之用｜參考資源：GOCHISOY、boco to deco、OYOGE、新市區農會<br>
+                        &copy; MAOSGOODY All Rights Reserved.</p>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
+    </div>
 
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    navList:[
+                        {
+                            index:'about',
+                            link:'about.html',
+                            name:'ABOUT'
+                        },
+                        {
+                            index:'news',
+                            link:'news.html',
+                            name:'NEWS'
+                        },
+                        {
+                            index:'products',
+                            link:'products.html',
+                            name:'PRODUCTS'
+                        },
+                        {
+                            index:'contact',
+                            link:'contact.html',
+                            name:'CONTACT'
+                        }
+                    ],
+                    loginImg:'pic/nav_login.png',
+                    loginLink:'login.html',
+                    cart:'pic/nav_cart.png',
+                    homeLink:'index.html',
+                    navLogo:'pic/nav_logo.svg',
+                    
+                    products: [
+                        {
+                            index: 'product1',
+                            name_tw: '經典鹽味毛豆',
+                            name_en: 'Classic Salty Edamame',
+                            weight: '500g',
+                            price: '$90',
+                            img: 'pic/bowl_s.png'
+                        },
+                        {
+                            index: 'product2',
+                            name_tw: '毛豆乳酪冰淇淋',
+                            name_en: 'Edamame & Cheese Gelato',
+                            weight: '90g',
+                            price: '$79',
+                            img: 'pic/gelato_s.png'
+                        },
+                        {
+                            index: 'product3',
+                            name_tw: '毛豆可可脆餅',
+                            name_en: 'Edamame Cocoa Biscuit',
+                            weight: '300g',
+                            price: '$290',
+                            img: 'pic/cookie_s.png'
+                        },
+                    ],
+                    productLink: 'products_item.html',
+                    newsticker: 'pic/newsticker.png',
+                    newsList: [
+                        {
+                            imgSrc: 'pic/news1_s.jpg',
+                            date: '2023.05.24',
+                            title: 'Petit Fleur 甜點跨界聯名！ 毛豆與布朗尼交織的法式小情歌',
+                            article: '初夏法式甜點鉅獻！前端工程師吃了有如神助！讓你code人心弦、入幕三分，連Amos看了都說豪棒棒',
+                            label: '新品上市',
+                            link: '#'
+                        },
+                        {
+                            imgSrc: 'pic/news2_s.jpg',
+                            date: '2023.05.05',
+                            title: '來去毛氏住一晚～ 小農輕旅行六月梯次開放預約囉',
+                            article: '每天在Tibame盯著電腦吹冷氣，對打code人生失去動力嗎？快讓自然的遼闊山林和田野風情療癒你匱乏的心靈~',
+                            label: '消息報報',
+                            link: '#'
+                        }
+                    ],
+                    footerlink: ["ABOUT", "NEWS", "PRODUCTS", "CONTACT"]
+                }
+            }
+        }).mount('#app')
+    </script>
 </body>
 
 </html>
